@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 async function main() {
   
-
+//deploys smart contract
   const Secret = await ethers.getContractFactory("Secret");
   const secret = await Secret.deploy();
 
