@@ -1,19 +1,15 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+  
 
-  const lockedAmount = ethers.utils.parseEther("0.00000001");
+  const Secret = await ethers.getContractFactory("Secret");
+  const secret = await Secret.deploy();
 
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  await secret.deployed();
 
-  await lock.deployed();
-
-  console.log(`Lock with 0.00000001 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`);
-  console.log(`Block explorer URL: https://blockscout.scroll.io/address/${lock.address}`);
+  console.log(`deployed to ${secret.address}`);
+  console.log(`Block explorer URL: https://blockscout.scroll.io/address/${secret.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
