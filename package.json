@@ -1,0 +1,9 @@
+{
+	"dependencies": {
+		"@headlessui/react": "^1.7.18",
+		"@heroicons/react": "^2.1.3",
+		"heroicons": "^2.1.3",
+		"outline": "link:@heroicons/react/24/outline",
+		"react-blockies": "^1.4.1"
+	}
+}
